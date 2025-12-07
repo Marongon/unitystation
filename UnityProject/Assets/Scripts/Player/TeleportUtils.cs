@@ -18,6 +18,8 @@ namespace Systems.Teleport
 	/// </summary>
 	public static class TeleportUtils
 	{
+		private static SpawnPoint[] cachedSpawnPoints;
+
 		/// <summary>
 		/// Gets teleport destinations for all objects with PlayerScript.
 		/// </summary>
@@ -83,6 +85,40 @@ namespace Systems.Teleport
 			}
 
 			foreach (SpawnPoint place in placeGameObjects)
+			{
+				var nameOfPlace = place.name;
+
+				if (nameOfPlace.Length == 0)
+				{
+					nameOfPlace = "Has No Name";
+				}
+
+				var placePosition = place.transform.position;// Only way to get position of this object.
+
+				var teleportInfo = new TeleportInfo(nameOfPlace, placePosition.CutToInt(), place.gameObject);
+
+				yield return teleportInfo;
+			}
+		}
+
+		/// <summary>
+        /// An updated, better performing version of GetSpawnDestinations
+        /// </summary>
+        /// <returns></returns>
+		public static IEnumerable<TeleportInfo> GetSpawnDestinationsCached()
+		{
+			if (cachedSpawnPoints == null || cachedSpawnPoints.Length == 0)
+			{
+				Debug.Log("Finding all SpawnPoint objects to cache them");
+				cachedSpawnPoints = Object.FindObjectsByType<SpawnPoint>(FindObjectsSortMode.None);
+			}
+
+			if (cachedSpawnPoints == null)//If list of SpawnPoints is empty dont run rest of code.
+			{
+				yield break;
+			}
+
+			foreach (SpawnPoint place in cachedSpawnPoints)
 			{
 				var nameOfPlace = place.name;
 

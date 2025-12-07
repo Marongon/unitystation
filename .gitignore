@@ -118,3 +118,6 @@ UnityProject/AddressablePackingProjects/SoundAndMusic/.vscode/settings.json
 UnityProject/Assets/Resources/ScriptableObjectsSingletons/SpriteCatalogueSingleton.asset
 Tools/CodeScanning/CodeScan/CodeScan/obj
 UnityProject/AddressablePackingProjects/SoundAndMusic/obj
+
+# Ignore the Code Coverage package folder
+UnityProject/CodeCoverage

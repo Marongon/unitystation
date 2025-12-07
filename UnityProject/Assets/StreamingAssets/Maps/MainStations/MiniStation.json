@@ -122878,6 +122878,12 @@
             "LocalPRS": "63.001┼30┼0┼"
           },
           {
+            "GitID": "263c0469b2b002a488de7b1506c59bcc_63.45┼62.05┼0┼",
+            "PrefabID": "263c0469b2b002a488de7b1506c59bcc",
+            "Name": "Stun Baton (1)",
+            "LocalPRS": "63.45┼62.05┼0┼"
+          },
+          {
             "GitID": "1002c0247e412884e91c857ce6e51d9c_64┼30┼0┼",
             "PrefabID": "1002c0247e412884e91c857ce6e51d9c",
             "Name": "MachineBoardDepartmentBattery (1)",
@@ -171451,10 +171457,6 @@
                   "Data": [
                     {
                       "Name": "isSelfPowered",
-                      "Data": "True"
-                    },
-                    {
-                      "Name": "AdvancedControlToScript",
                       "Data": "True"
                     }
                   ]
